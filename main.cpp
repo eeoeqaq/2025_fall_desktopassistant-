@@ -1,11 +1,21 @@
-#include <iostream>
-#include "shouzhi.h"
-#define MAX 1000
-using namespace std;
+#include "account.h"
 
-int main() {
-    recordings* a[100];
-    irecordings b;
-    a[1]=&b;
-    return 0;
+
+
+void test()
+{
+	account_manager A;
+	A.Start();
 }
+
+int main()
+{
+	test();
+	return 0;
+}
+
+
+//日志：12.6 已经完成命名修改，添加了清空账单，解决了一部分输入数据健壮性的问题
+// 更改了关闭功能的结构，解决了部分代码不好维护的问题
+//仍然存在的问题：金额上限需要确定，还有一部分输入依旧容易被玩坏，
+//可能需要自己构造一个通用的安全输入函数
