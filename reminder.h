@@ -3,8 +3,10 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<vector>
 using namespace std;
 #define PASSWORD_FILE "password_dic.txt"
+#define DIARY_FILE "diary_dic.txt"
 
 //在本部分实现备忘录功能
 //我们希望：按标题区分不同备忘录，在这些二进制文件中写内容
@@ -63,3 +65,37 @@ class password {
     inline string get_name () const{return web_or_name;};
     inline string get_pw_content() const{return password_content;};
 };
+
+//一个用于模拟日期的类
+class date{
+    int year,month,day;
+    public:
+    date(int ny,int nm, int nd):year(ny),month(nm),day(nd){};
+    int get_year()const {return year;}
+    int get_month()const {return month;}
+    int get_day()const {return day;}
+
+};
+
+//一个用于模拟单篇日记的类
+class diary{
+    date someday;
+    string content;
+    public:
+    diary()=default;
+    diary(date a,string b):someday(a),content(b){};
+    date get_date(){return someday;}
+    string get_content(){return content;}
+};
+
+//一个用于模拟日记本的类
+class diaries{
+    map <date,vector<diary>> dairy_lib;
+    public:
+    void write_diary();
+    void fetch_diary();
+    void save();
+    void load();
+};
+
+
