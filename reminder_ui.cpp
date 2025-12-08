@@ -9,14 +9,32 @@ int checkinput(string a){
     }
 }
 
+int checkinput(int a){
+    if(a==-1){
+        return -1;
+    }else{
+        return 1;
+    }
+}
+
+vector<string> split(const string& s, char delimiter) {
+    vector<string> tokens;
+    istringstream iss(s);
+    string item;
+    while (getline(iss, item, delimiter)) {
+        tokens.push_back(item);
+    }
+    return tokens;
+}
+
 void reminder_ui::reminder_main_ui(){
     while(1){
         system("cls");
-        cout<<"########################"<<endl
+    cout<<"########################"<<endl
         <<"#    欢迎使用备忘录！    #"<<endl
-        <<"#    1."<<endl
-        <<"#    2."<<endl
-        <<"#    3.密码保险箱"<<endl
+        <<"#    1.              #"<<endl
+        <<"#    2.记事本           #"<<endl
+        <<"#    3.密码保险箱       #"<<endl
         <<"#    4.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
@@ -44,27 +62,61 @@ void reminder_ui::reminder_passwords_ui(){
         <<"#    5.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
-    int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
-    switch(x){
-        case 1:
-        a.store_password();
-        system("pause");
-        break;
-        case 2:
-        a.change_password();
-        system("pause");
-        break;
-        case 3:
-        a.fetch_password();
-        system("pause");
-        break;
-        case 4:
-        a.set_checkword();
-        system("pause");
-        break;
-        case 5:   
-        return;        
-        break;
-    }
+        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        switch(x){
+            case 1:
+            a.store_password();
+            system("pause");
+            break;
+            case 2:
+            a.change_password();
+            system("pause");
+            break;
+            case 3:
+            a.fetch_password();
+            system("pause");
+            break;
+            case 4:
+            a.set_checkword();
+            system("pause");
+            break;
+            case 5:   
+            return;        
+            break;
+        }
     }
 }
+
+void reminder_ui::reminder_diaries_ui(){
+    diaries a;
+    while (1){
+        system("cls");
+    cout<<"########################"<<endl
+        <<"#    欢迎使用日记本！    #"<<endl
+        <<"#    1.写日记           #"<<endl
+        <<"#    2.读日记           #"<<endl
+        <<"#    3.修改日记         #"<<endl
+        <<"#    4.退出             #"<<endl
+        <<"########################"<<endl
+        <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
+        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        switch(x){
+            case 1:
+            a.write_diary();
+            system("pause");
+            break;
+            case 2:
+            a.fetch_diary();
+            system("pause");
+            break;
+            case 3:
+            a.change_diary();
+            system("pause");
+            break;
+            case 4:   
+            return;        
+            break;
+        }
+    }
+}
+    

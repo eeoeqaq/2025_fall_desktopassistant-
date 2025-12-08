@@ -3,6 +3,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<sstream>
 #include<vector>
 using namespace std;
 #define PASSWORD_FILE "password_dic.txt"
@@ -23,6 +24,9 @@ class passwords;
 
 //帮助检测用户输入的辅助函数，待拓展。
 int checkinput(string a);
+int checkinput(int a);
+//diaries部分用到的string.split。
+vector<string> split(const string& s, char delimiter = ' ');
 
 //一个用于模拟备忘录部分的交互、UI、顶层设计
 class reminder_ui{
@@ -37,6 +41,7 @@ class reminder_ui{
     //void global_search();
     //passwords的二级ui
     void reminder_passwords_ui();
+    void reminder_diaries_ui();
 };
 
 
@@ -70,7 +75,11 @@ class password {
 class date{
     int year,month,day;
     public:
+    date()=default;
     date(int ny,int nm, int nd):year(ny),month(nm),day(nd){};
+    //为了作为map的key，需要重载'<'
+    bool operator<(const date& other) const ;
+    //一些用于取值的函数
     int get_year()const {return year;}
     int get_month()const {return month;}
     int get_day()const {return day;}
@@ -86,14 +95,16 @@ class diary{
     diary(date a,string b):someday(a),content(b){};
     date get_date(){return someday;}
     string get_content(){return content;}
+    string get_content()const{return content;}
 };
 
 //一个用于模拟日记本的类
 class diaries{
-    map <date,vector<diary>> dairy_lib;
     public:
+    map <date,vector<diary>> dairy_lib;
     void write_diary();
     void fetch_diary();
+    void change_diary();
     void save();
     void load();
 };
