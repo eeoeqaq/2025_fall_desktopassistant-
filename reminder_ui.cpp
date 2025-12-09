@@ -8,7 +8,6 @@ int checkinput(string a){
         return 1;
     }
 }
-
 int checkinput(int a){
     if(a==-1){
         return -1;
@@ -32,14 +31,17 @@ void reminder_ui::reminder_main_ui(){
         system("cls");
     cout<<"########################"<<endl
         <<"#    欢迎使用备忘录！    #"<<endl
-        <<"#    1.              #"<<endl
-        <<"#    2.记事本           #"<<endl
+        <<"#    1.记事本           #"<<endl
+        <<"#    2.日记本           #"<<endl
         <<"#    3.密码保险箱       #"<<endl
         <<"#    4.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
     int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
     switch(x){
+        case 2:
+        reminder_diaries_ui();
+        break;
         case 3:
         reminder_passwords_ui();   
         break;
@@ -61,7 +63,7 @@ void reminder_ui::reminder_passwords_ui(){
         <<"#    4.更改checkword    #"<<endl
         <<"#    5.退出             #"<<endl
         <<"########################"<<endl
-        <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
+        <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
         int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
         switch(x){
             case 1:
@@ -98,7 +100,7 @@ void reminder_ui::reminder_diaries_ui(){
         <<"#    3.修改日记         #"<<endl
         <<"#    4.退出             #"<<endl
         <<"########################"<<endl
-        <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
+        <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
         int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
         switch(x){
             case 1:
