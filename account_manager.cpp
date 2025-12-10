@@ -31,9 +31,11 @@ void account_manager::HomePage()//首页菜单模块
 	{
 		cout << " ******************************" << endl;
 		cout << "添加账目输入1" << endl;
-		cout << "打印账单输入2" << endl;
-		cout << "清空账本输入3" << endl;
-		cout << "退出账本输入4" << endl;
+		cout << "删除账目输入2" << endl;
+		cout << "打印账单输入3" << endl;
+		cout << "清空账本输入4" << endl;
+		cout << "分析账单输入5" << endl;
+		cout << "退出账本输入6" << endl;
 		cout << " ******************************" << endl << endl;
 
 
@@ -48,6 +50,8 @@ void account_manager::HomePage()//首页菜单模块
 			case 2:
 			case 3:
 			case 4:
+			case 5:
+			case 6:
 				break;
 			default:
 				num = -1;
@@ -64,12 +68,18 @@ void account_manager::HomePage()//首页菜单模块
 			this->WriteAccount();
 			break;
 		case 2:
-			this->showTable();
+			this->DeleteAccount();
 			break;
 		case 3:
-			this->clearAccount();
+			this->showTable();
 			break;
 		case 4:
+			this->clearAccount();
+			break;
+		case 5:
+			this->analysisAccount();
+			break;
+		case 6:
 			return;
 		}
 	}
@@ -81,6 +91,22 @@ void account_manager::WriteAccount()
 	a.setAccount();
 	accounts.push_back(a);
 	this->save();
+}
+
+void account_manager::DeleteAccount()
+{
+	this->showTable();
+	int row=-1;
+	int max = (int)this->accounts.size();
+	while (row==-1)
+	{
+		cout << "输入需要删除的账目（第几行）" << endl;
+		cin >> row;
+		row = (row >= 0 && row <= max) ? row : -1;
+	}
+
+	this->accounts.erase(accounts.begin()+row-1);
+	this->showTable();
 }
 
 void account_manager::showTable()
@@ -105,6 +131,12 @@ void account_manager::save()
 		accountFile << a.getAccount()<<endl;
 	}
 	accountFile.close();
+}
+
+void account_manager::analysisAccount()
+{
+	analysis A;
+	A.start(account_manager::accounts);
 }
 
 void account_manager::clearAccount()

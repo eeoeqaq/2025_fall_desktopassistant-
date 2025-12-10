@@ -44,11 +44,28 @@ public:
 
 };
 
+//提供分析报告类
+class analysis
+{
+
+public:
+	void start(vector<account> accounts);
+
+	//总结收入支出
+	void stateAnalysis(vector<vector<int>> arrayAccounts);
+	//总结收入下子类型
+	void incomeType(vector<vector<int>> arrayAccounts);
+	//总结支出下子类型
+	void expenseType(vector<vector<int>> arrayAccounts);
+	
+};
 
 //账单管理类
 class account_manager
 {//储存所有账目
+
 	vector<account> accounts;
+	
 public:
 	//开启程序
 	void Start();
@@ -56,10 +73,14 @@ public:
 	void HomePage();
 	//写入一条账目
 	void WriteAccount();
+	//删除一条账目
+	void DeleteAccount();
 	//展示账目表格
 	void showTable();
 	//保存所有账目
 	void save();
+	//提供分析报告
+	void analysisAccount();
 	//清空账本
 	void clearAccount();
 	
