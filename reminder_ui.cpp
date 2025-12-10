@@ -2,16 +2,24 @@
 using namespace std;
 
 int checkinput(string a){
-    if(stoi(a)==-1){
+    try{
+        if(stoi(a)==-1){
         return -1;
     }else{
         return 1;
     }
+    }catch(invalid_argument){
+        return 1;
+    }
 }
 int checkinput(int a){
-    if(a==-1){
+    try{
+        if(a==-1){
         return -1;
     }else{
+        return 1;
+    }
+    }catch(...){
         return 1;
     }
 }
@@ -39,6 +47,9 @@ void reminder_ui::reminder_main_ui(){
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
     int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
     switch(x){
+        case 1:
+        reminder_notepads_ui();
+        break;
         case 2:
         reminder_diaries_ui();
         break;
@@ -48,6 +59,47 @@ void reminder_ui::reminder_main_ui(){
         case 4:
         return;
     }
+    }
+}
+
+void reminder_ui::reminder_notepads_ui(){
+    notepads a;
+    while(1){
+        system("cls");
+    cout<<"########################"<<endl
+        <<"#    欢迎使用记事本！    #"<<endl
+        <<"#    1.写文章           #"<<endl
+        <<"#    2.列出文章标题     #"<<endl
+        <<"#    3.检索文章         #"<<endl
+        <<"#    4.更改文章内容     #"<<endl
+        <<"#    5.清空记事本       #"<<endl
+        <<"#    6.退出             #"<<endl
+        <<"########################"<<endl
+        <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
+        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        switch(x){
+            case 1:
+            a.store_notepad();
+            system("pause");
+            break;
+            case 2:
+            a.list_title();
+            system("pause");
+            break;
+            case 3:
+            a.fetch_notepad();
+            system("pause");
+            break;
+            case 4:
+            a.change_notepad();
+            system("pause");
+            break;
+            case 5:
+            a.delete_all();
+            break;
+            case 6:   
+            return;        
+        }
     }
 }
 
