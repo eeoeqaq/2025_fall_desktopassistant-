@@ -3,64 +3,25 @@
 void account::setAccount()
 {
 	int money;
-	cout << "请输入金额(单笔不超过1000000元)" << endl<<endl;
-	cin >> money;
+	cout << "请输入金额(单笔不超过1000000元的整数)" << endl<<endl;
+	safeCin(money, 1000000, 1, 2);	
+	int state;
+	cout << "请输入收支类型(1为收入/2为支出)" << endl << endl;
+	safeCin(state, 2, 1, 1);
 
-	int state=-1;
-	while (state == -1)
+	int type ;
+	if (state == 1)//收入类型
 	{
-		cout << "请输入收入/支出（1为收入，2为支出）" << endl<<endl;
-		cin >> state;
-		switch (state)
-		{
-		case 1:
-		case 2:
-			break;
-		default:
-			state = -1;
-			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			break;
-		}
+		cout << "请输入收入类型（1为工资，2为其他收入）" << endl << endl;
+		safeCin(type, 2, 1, 1);
 	}
-
-	int type = -1;
-	while (type == -1)
+	else //支出类型
 	{
-		if (state == 1)//收入类型
-		{
-			cout << "请输入收入类型（1为工资，2为其他收入）" << endl<<endl;
-			cin >> type;
-			switch (type)
-			{
-			case 1:
-			case 2:
-				break;
-			default:
-				type = -1;
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				break;
-			}
-		}
-		else //支出类型
-		{
-			cout << "请输入支出类型（1为饮食，2为日用，3为娱乐）" << endl<<endl;
-			cin >> type;
-			switch (type)
-			{
-			case 1:
-			case 2:
-			case 3:
-				break;
-			default:
-				type = -1;
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				break;
-			}
-		}
+		cout << "请输入支出类型（1为饮食，2为日用，3为娱乐）" << endl<<endl;
+		safeCin(type, 3, 1, 1);
+			
 	}
+	
 
 	this->money = money;
 	this->state = state;

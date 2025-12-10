@@ -83,7 +83,12 @@ public:
 	void analysisAccount();
 	//清空账本
 	void clearAccount();
-	
-	
-
 };
+
+//安全输入函数
+//type=1,在max和min之间的整数是合法的
+//type=2，在max和min之间的实数是合法的
+int safeCin(int& input, int max, int min, int type);
+
+
+

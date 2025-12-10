@@ -39,30 +39,11 @@ void account_manager::HomePage()//首页菜单模块
 		cout << " ******************************" << endl << endl;
 
 
-		int num = -1;
-		while (num == -1)
-		{
-			cout << "输入选项";
-			cin >> num;
-			switch (num)
-			{
-			case 1:
-			case 2:
-			case 3:
-			case 4:
-			case 5:
-			case 6:
-				break;
-			default:
-				num = -1;
-				// 清除cin的错误状态
-				cin.clear();
-				cin.ignore(numeric_limits<streamsize>::max(), '\n');
-				break;
-			}
-			cout << endl;
-		}
-		switch (num)
+		int choice;
+		cout << "输入选项";
+		safeCin(choice, 6, 1, 1);
+		cout << endl;
+		switch (choice)
 		{
 		case 1:
 			this->WriteAccount();
@@ -96,14 +77,10 @@ void account_manager::WriteAccount()
 void account_manager::DeleteAccount()
 {
 	this->showTable();
-	int row=-1;
 	int max = (int)this->accounts.size();
-	while (row==-1)
-	{
-		cout << "输入需要删除的账目（第几行）" << endl;
-		cin >> row;
-		row = (row >= 0 && row <= max) ? row : -1;
-	}
+	int row;
+	cout << "输入需要删除的账目（第几行）" << endl;
+	safeCin(row, max, 1, 1);
 
 	this->accounts.erase(accounts.begin()+row-1);
 	this->showTable();
