@@ -1,25 +1,43 @@
 #include"reminder.h"
 using namespace std;
 
-void diaries::write_diary(){
+// 说明：
+// 本文件实现日记模块，包括写入、读取、修改、持久化保存与加载，
+// 以及 `date` 的比较运算符以支持作为 map 的键。
+// 数据结构：
+// - `map<date, vector<diary>> dairy_lib`：按日期聚合的多篇日记；同一天可能有多条。
+// 文件保存格式（文本示例）：
+//   date 2025 12 14
+//   content 今天学习了 C++
+//   content 备忘：买牛奶
+//   date 2025 12 15
+//   content 又是充实的一天
+// 解析规则：遇到 `date` 切换当前日期；后续每行 `content` 归属于最近的日期。
+
+void diaries::write_diary()
+{
     int y,m,d;string new_content;
+    // 依次输入年月日，任何一步输入 -1 则终止
     cout<<"请输入日期（格式：yyyy mm dd）："<<endl;
     cin>>y;if(checkinput(y)==-1){return;}
     cin>>m;if(checkinput(m)==-1){return;}
     cin>>d;if(checkinput(d)==-1){return;}
     cout<<"请输入日记内容："<<endl;
     cin>>new_content;
+    // 将同一天的多篇日记以 vector 追加存储
     dairy_lib[date(y,m,d)].push_back(diary(date(y,m,d),new_content));
     cout<<"写入成功！"<<endl;
     save();
 }
 
-void diaries::fetch_diary(){
+void diaries::fetch_diary()
+{
     string got_content;int y,m,d;
     cout<<"请输入日期以查看日记！格式：yyyy mm dd"<<endl;
     cin>>y;if(checkinput(y)==-1){return;}
     cin>>m;if(checkinput(m)==-1){return;}
     cin>>d;if(checkinput(d)==-1){return;}
+    // 根据选择的日期展示：无日记 / 单篇 / 多篇需选择序号
     if(dairy_lib[date(y,m,d)].size()==0){
         cout<<"你这天没有写日记哦"<<endl;
     }else if (dairy_lib[date(y,m,d)].size()==1){
@@ -28,7 +46,8 @@ void diaries::fetch_diary(){
     }else{
         cout<<"你在此天写了 "<<dairy_lib[date(y,m,d)].size()<<" 篇日记。请输入序号以查看某篇日记："<<endl;
         int order;cin>>order;if(checkinput(to_string(order))==-1){return;}
-        while(order>=dairy_lib[date(y,m,d)].size()||order<-1){
+        // 边界检查：下标必须满足 0 <= order < size
+        while(order>=dairy_lib[date(y,m,d)].size()||order<0){
             cout<<"没有这个编号的日记！"<<endl;
             cin>>order;if(checkinput(to_string(order))==-1){return;}
         }
@@ -37,12 +56,14 @@ void diaries::fetch_diary(){
     save();
 }
 
-void diaries::change_diary(){
+void diaries::change_diary()
+{
     string got_content;int y,m,d;
     cout<<"请输入日期以修改日记！格式：yyyy mm dd"<<endl;
     cin>>y;if(checkinput(y)==-1){return;}
     cin>>m;if(checkinput(m)==-1){return;}
     cin>>d;if(checkinput(d)==-1){return;}
+    // 修改逻辑与读取相似：单篇直接替换，多篇按序号选择后替换
     if(dairy_lib[date(y,m,d)].size()==0){
         cout<<"你这天没有写日记哦"<<endl;
     }else if (dairy_lib[date(y,m,d)].size()==1){
@@ -55,21 +76,25 @@ void diaries::change_diary(){
     }else{
         cout<<"你在此天写了 "<<dairy_lib[date(y,m,d)].size()<<" 篇日记。请输入序号以修改某篇日记："<<endl;
         int order;cin>>order;if(checkinput(to_string(order))==-1){return;}
-        while(order>=dairy_lib[date(y,m,d)].size()||order<-1){
+        // 边界检查：下标必须满足 0 <= order < size
+        while(order>=dairy_lib[date(y,m,d)].size()||order<0){
             cout<<"没有这个编号的日记！"<<endl;
             cin>>order;if(checkinput(to_string(order))==-1){return;}
         }
         cout<<dairy_lib[date(y,m,d)][order].get_content()<<endl;
         cout<<"请输入修改后的内容："<<endl;
         cin>>got_content;
-        dairy_lib[date(y,m,d)][0]=diary(date(y,m,d),got_content);
+        // 用新内容替换所选序号对应的日记
+        dairy_lib[date(y,m,d)][order]=diary(date(y,m,d),got_content);
     }    
     save();
 }
 
-void diaries::save(){
+void diaries::save()
+{
     fstream fs;
     fs.open(DIARY_FILE,ios::out);
+    // 以人类可读的文本格式保存：每个 date 后跟多行 content
     for (const auto &p : dairy_lib) {
         fs <<"date "<<to_string(p.first.get_year()) << ' ' <<to_string(p.first.get_month())<<' '
         <<to_string(p.first.get_day())<<"\n";
@@ -80,7 +105,8 @@ void diaries::save(){
     fs.close();
 }
 
-void diaries::load(){
+void diaries::load()
+{
     fstream fs;
     fs.open(DIARY_FILE,ios::in);
     string bf_str,bf1,bf2,bf3,state;
@@ -93,13 +119,16 @@ void diaries::load(){
         bf_ss>>state;
         //用每行的第一个词,即标志词做区分
         if(state=="date"){
+            // 读取日期行：date yyyy mm dd
             bf_ss>>bf1>>bf2>>bf3;
             bf_day=date(stoi(bf1),stoi(bf2),stoi(bf3));
         }else if(state=="content"){
+            // 读取内容行：content <文本>
             bf_ss.ignore();
             getline(bf_ss, bf1);  
             dairy_lib[bf_day].push_back(diary(bf_day,bf1));       
         }else{
+            // 非预期行：输出 -1 并提前返回（可视为简单的错误处理）
             cout<<"-1"<<endl;
             return;
         }
@@ -108,8 +137,10 @@ void diaries::load(){
 }
 
 
-bool date::operator<(const date& other) const {
-        if (year != other.year) return year < other.year;
-        if (month != other.month) return month < other.month;
-        return day < other.day;
-    }
+bool date::operator<(const date& other) const 
+{
+    // 比较 year、month、day 的字典序，用于 map 的键排序
+    if (year != other.year) return year < other.year;
+    if (month != other.month) return month < other.month;
+    return day < other.day;
+}
