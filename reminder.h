@@ -35,7 +35,8 @@ int checkinput(int a);
 vector<string> split(const string& s, char delimiter = ' ');
 
 //一个用于模拟备忘录部分的交互、UI、顶层设计的类
-class reminder_ui{
+class reminder_ui
+{
     //create_options my_option=blank;
     //passwords current_passwords;
     public:
@@ -52,7 +53,8 @@ class reminder_ui{
 };
 
 //记事本的集合类
-class notepads {
+class notepads 
+{
     map <string,notepad> notepad_dic={};
     public:
     notepads(){this->load();}
@@ -68,7 +70,8 @@ class notepads {
 };
 
 //一个用于模拟单个记事本的类
-class notepad {
+class notepad
+{
     string title;
     string notepad_content;
     public:
@@ -79,7 +82,8 @@ class notepad {
 };
 
 //一个用于模拟所有已储存密码的集合类
-class passwords {
+class passwords 
+{
     static string checkword;
     map <string,password> password_dic={};
     public:
@@ -95,7 +99,8 @@ class passwords {
 };
 
 //一个用于模拟单个密码的类
-class password {
+class password 
+{
     string web_or_name;
     string password_content;
     public:
@@ -106,7 +111,8 @@ class password {
 };
 
 //一个用于模拟日期的类
-class date{
+class date
+{
     int year,month,day;
     public:
     date()=default;
@@ -121,7 +127,8 @@ class date{
 };
 
 //一个用于模拟单篇日记的类
-class diary{
+class diary
+{
     date someday;
     string content;
     public:
@@ -133,7 +140,8 @@ class diary{
 };
 
 //一个用于模拟日记本的类
-class diaries{
+class diaries
+{
     public:
     map <date,vector<diary>> dairy_lib;
     void write_diary();
@@ -142,6 +150,7 @@ class diaries{
     void save();
     void load();
 };
+
 
 
 
