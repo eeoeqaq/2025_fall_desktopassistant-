@@ -1,4 +1,5 @@
 #include "account.h"
+#include "reminder.h"
 
 int safeCin(int& input, int max, int min, int type)
 {
@@ -10,7 +11,7 @@ int safeCin(int& input, int max, int min, int type)
 		{
 			if (input == i) return input;
 		}
-		cout << "输入非法，请重新输入" << endl;
+		cout << "杈撳叆闈炴硶锛岃閲嶆柊杈撳叆" << endl;
 	}
 	
 	while (type == 2)
@@ -18,6 +19,9 @@ int safeCin(int& input, int max, int min, int type)
 		
 		if ((cin >> input) && input >= min && input <= max)
 			return input;
-		else  cout << "输入非法，请重新输入" << endl;
+		else  cout << "杈撳叆闈炴硶锛岃閲嶆柊杈撳叆" << endl;
 	}
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    cout << "杈撳叆闈炴硶锛岃閲嶆柊杈撳叆" << endl;
 }
