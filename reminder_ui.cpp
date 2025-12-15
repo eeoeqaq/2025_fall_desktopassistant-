@@ -51,11 +51,11 @@ void reminder_ui::reminder_main_ui(){
     while(1){
         system("cls");
     cout<<"########################"<<endl
-        <<"#    欢迎使用备忘录！    #"<<endl
-        <<"#    1.记事本           #"<<endl
-        <<"#    2.日记本           #"<<endl
-        <<"#    3.密码保险箱       #"<<endl
-        <<"#    4.退出             #"<<endl
+        <<"#欢迎使用备忘录！#"<<endl
+        <<"#记事本"<<endl
+        <<"#2.日记本"<<endl
+        <<"#3.密码保险箱#"<<endl
+        <<"#4.退出#"<<endl
         <<"########################"<<endl
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
     int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
