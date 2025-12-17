@@ -1,6 +1,8 @@
 ﻿#include "todolist.h"
 #include"account.h"
 #include"reminder.h"
+#include"calculator.h"
+#include"TwentyFourGame.h"
 #include<windows.h>
 
 int main()
@@ -11,6 +13,7 @@ int main()
         TodolistManager todolistManager;
         account_manager accountManager;  
         reminder_ui reminderManager;
+        
 
         while (true) {
             system("cls");
@@ -20,6 +23,8 @@ int main()
             cout << "1. 账本" << endl;
             cout << "2. 备忘录" << endl;
             cout << "3. todolist" << endl;
+            cout << "4. 多功能计算器" << endl;
+            cout << "3. 24点游戏" << endl;
             cout << "0. 退出程序" << endl;
             cout << "=================================" << endl;
 
@@ -42,4 +47,5 @@ int main()
 
         }
     return 0;
+
 }
