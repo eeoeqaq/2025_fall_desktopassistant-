@@ -51,14 +51,21 @@ void reminder_ui::reminder_main_ui(){
     while(1){
         system("cls");
     cout<<"########################"<<endl
-        <<"#欢迎使用备忘录！#"<<endl
-        <<"#记事本"<<endl
-        <<"#2.日记本"<<endl
-        <<"#3.密码保险箱#"<<endl
-        <<"#4.退出#"<<endl
+        <<"#    欢迎使用备忘录！    #"<<endl
+        <<"#    1.记事本           #"<<endl
+        <<"#    2.日记本           #"<<endl
+        <<"#    3.密码保险箱       #"<<endl
+        <<"#    0.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在任何输入部分输入“-1”以终止进程"<<endl;
-    int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+    int x;
+    cin>>x;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        continue;
+    }
+    if (checkinput(to_string(x))==-1){return;}
     // 根据用户选择分派到不同子模块
     switch(x){
         case 1:
@@ -70,7 +77,7 @@ void reminder_ui::reminder_main_ui(){
         case 3:
         reminder_passwords_ui();   
         break;
-        case 4:
+        case 0:
         // 退出主循环
         return;
     }
@@ -90,10 +97,17 @@ void reminder_ui::reminder_notepads_ui(){
         <<"#    3.检索文章         #"<<endl
         <<"#    4.更改文章内容     #"<<endl
         <<"#    5.清空记事本       #"<<endl
-        <<"#    6.退出             #"<<endl
+        <<"#    0.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
-        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        int x;
+        cin>>x;
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (checkinput(to_string(x))==-1){return;}
         switch(x){
             case 1:
             // 写文章：标题唯一，若重复则提示
@@ -118,8 +132,9 @@ void reminder_ui::reminder_notepads_ui(){
             case 5:
             // 两次确认后清空所有条目
             a.delete_all();
+            system("pause");
             break;
-            case 6:   
+            case 0:   
             // 返回主菜单
             return;        
         }
@@ -138,10 +153,17 @@ void reminder_ui::reminder_passwords_ui(){
         <<"#    2.更改密码         #"<<endl
         <<"#    3.检索密码         #"<<endl
         <<"#    4.更改checkword    #"<<endl
-        <<"#    5.退出             #"<<endl
+        <<"#    0.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
-        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        int x;
+        cin>>x;
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        if (checkinput(to_string(x))==-1){return;}
         switch(x){
             case 1:
             // 新增密码条目（键为名称/网站）
@@ -163,7 +185,7 @@ void reminder_ui::reminder_passwords_ui(){
             a.set_checkword();
             system("pause");
             break;
-            case 5:   
+            case 0:   
             // 返回主菜单
             return;        
             break;
@@ -175,6 +197,7 @@ void reminder_ui::reminder_passwords_ui(){
 // 写/读/改都按日期维度组织，多篇日记以序号区分。
 void reminder_ui::reminder_diaries_ui(){
     diaries a;
+    a.load();  // 加载历史日记
     while (1){
         system("cls");
     cout<<"########################"<<endl
@@ -182,10 +205,19 @@ void reminder_ui::reminder_diaries_ui(){
         <<"#    1.写日记           #"<<endl
         <<"#    2.读日记           #"<<endl
         <<"#    3.修改日记         #"<<endl
-        <<"#    4.退出             #"<<endl
+        <<"#    0.退出             #"<<endl
         <<"########################"<<endl
         <<"tips:您可以在大部分输入部分输入“-1”以终止进程"<<endl;
-        int x;cin>>x;if (checkinput(to_string(x))==-1){return;}
+        int x;
+        cin>>x;
+        // 处理 cin 失败状态（输入非数字时）
+        if(cin.fail()){
+            //cout<<"error"<<endl;
+            cin.clear();  // 清除错误标志
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');  // 清空缓冲区
+            continue;  // 重新显示菜单
+        }
+        if (checkinput(to_string(x))==-1){return;}
         switch(x){
             case 1:
             // 写入指定日期的日记（可多篇）
@@ -202,7 +234,7 @@ void reminder_ui::reminder_diaries_ui(){
             a.change_diary();
             system("pause");
             break;
-            case 4:   
+            case 0:   
             // 返回主菜单
             return;        
             break;

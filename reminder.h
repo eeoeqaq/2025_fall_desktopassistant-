@@ -6,6 +6,7 @@
 #include<iomanip>
 #include<sstream>
 #include<vector>
+#include<limits>
 using namespace std;
 #define PASSWORD_FILE "password_dic.txt"
 #define DIARY_FILE "diary_dic.txt"
@@ -56,8 +57,7 @@ class reminder_ui{
     //passwords current_passwords;
     public:
     //创建一个备忘录进程
-    // 构造时直接进入主 UI 循环（阻塞式），通过菜单选择进入各子模块或退出。
-    reminder_ui(){this->reminder_main_ui();}
+    // 调用唯一的成员函数时进入主 UI 循环（阻塞式），通过菜单选择进入各子模块或退出。
     //打印ui，读入用户操作并进入下一级ui
     void reminder_main_ui();
     //直接搜索某个文件是否存在

@@ -22,12 +22,15 @@ void diaries::write_diary()
     cin>>y;if(checkinput(y)==-1){return;}
     cin>>m;if(checkinput(m)==-1){return;}
     cin>>d;if(checkinput(d)==-1){return;}
+    // 清空输入缓冲区中的残留换行符，避免 getline 读到空行
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout<<"请输入日记内容："<<endl;
-    cin>>new_content;
+    getline(cin, new_content);
+    if(checkinput(new_content)==-1){return;}
     // 将同一天的多篇日记以 vector 追加存储
     dairy_lib[date(y,m,d)].push_back(diary(date(y,m,d),new_content));
     cout<<"写入成功！"<<endl;
-    save();
+    save(); 
 }
 
 void diaries::fetch_diary()

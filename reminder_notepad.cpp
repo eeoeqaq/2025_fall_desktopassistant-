@@ -58,12 +58,14 @@ void notepads::list_title(){
 
 void notepads::delete_all(){
     string ans;
-    cout<<"你真的要清空记事本吗？输入-1以退出！"<<endl;
+    cout<<"你真的要清空记事本吗？输入“1”以继续！"<<endl;
     cin>>ans;
-    if (checkinput(ans)==-1){return;}
-    cout<<"你真的真的真的要清空记事本吗？输入-1以退出！"<<endl;
+    if(checkinput(ans)==-1){return;}
+    if (ans!="1"){return;}
+    cout<<"你真的真的真的要清空记事本吗？输入“继续”以继续！"<<endl;
     cin>>ans;
-    if (checkinput(ans)==-1){return;}
+    if(checkinput(ans)==-1){return;}
+    if (ans!="继续"){return;}
     // 两次确认后清空所有条目
     notepad_dic.clear();
     cout<<"清除完成！"<<endl;
