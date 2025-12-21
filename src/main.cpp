@@ -3,6 +3,7 @@
 #include"reminder.h"
 #include"calculator.h"
 #include"TwentyFourGame.h"
+#include"pomodoro.h"
 #include<windows.h>
 
 int main()
@@ -15,6 +16,7 @@ int main()
         reminder_ui reminderManager;
         Calculator calculatorManager;
         TwentyFourGame twentyfourgameManager;
+        PomodoroManager pomodoroManager;
 
         while (true) {
             system("cls");
@@ -26,10 +28,11 @@ int main()
             cout << "3. todolist" << endl;
             cout << "4. 多功能计算器" << endl;
             cout << "5. 24点游戏" << endl;
+            cout << "6. 🍅 番茄钟专注系统" << endl;
             cout << "0. 退出程序" << endl;
             cout << "=================================" << endl;
 
-            int choice=safeCin("\n请输入选项", 0, 3);
+            int choice=safeCin("\n请输入选项", 0, 6);
 
             switch (choice) {
             case 1:
@@ -46,6 +49,9 @@ int main()
                 break;
             case 5:
                 twentyfourgameManager.run();
+                break;
+            case 6:
+                pomodoroManager.start();
                 break;
             case 0:
                 return 0;

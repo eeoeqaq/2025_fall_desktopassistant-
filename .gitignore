@@ -1,0 +1,28 @@
+# Build artifacts
+build/
+bin/
+*.o
+*.obj
+*.exe
+*.out
+_codeql_build_dir/
+_codeql_detected_source_root
+
+# Data files
+pomodoro_data.txt
+achievements_data.txt
+todolist_data.txt
+password_dic.txt
+diary_dic.txt
+notepad_dic.txt
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
