@@ -1,3 +1,0 @@
-/home/runner/work/2025_fall_desktopassistant-/2025_fall_desktopassistant-/build/CMakeFiles/DesktopAssistant.dir
-/home/runner/work/2025_fall_desktopassistant-/2025_fall_desktopassistant-/build/CMakeFiles/edit_cache.dir
-/home/runner/work/2025_fall_desktopassistant-/2025_fall_desktopassistant-/build/CMakeFiles/rebuild_cache.dir
