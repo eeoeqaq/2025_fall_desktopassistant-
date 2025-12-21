@@ -1,0 +1,3 @@
+D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build/CMakeFiles/DesktopAssistant.dir
+D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build/CMakeFiles/edit_cache.dir
+D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build/CMakeFiles/rebuild_cache.dir

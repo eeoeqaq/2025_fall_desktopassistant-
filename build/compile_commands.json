@@ -1,0 +1,98 @@
+[
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\account\\account_account.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\account\\account_account.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/account/account_account.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/account/account_account.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\account\\account_analysis.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\account\\account_analysis.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/account/account_analysis.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/account/account_analysis.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\account\\account_manager.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\account\\account_manager.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/account/account_manager.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/account/account_manager.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\account\\account_safeCin.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\account\\account_safeCin.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/account/account_safeCin.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/account/account_safeCin.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\calculator\\calculator_Calculator.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\calculator\\calculator_Calculator.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/calculator/calculator_Calculator.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/calculator/calculator_Calculator.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\calculator\\calculator_ExpressionEvaluator.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\calculator\\calculator_ExpressionEvaluator.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/calculator/calculator_ExpressionEvaluator.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/calculator/calculator_ExpressionEvaluator.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\game24\\TwentyFoueGame.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\game24\\TwentyFoueGame.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/game24/TwentyFoueGame.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/game24/TwentyFoueGame.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\game24\\TwentyFourGame_GameInner.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\game24\\TwentyFourGame_GameInner.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/game24/TwentyFourGame_GameInner.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/game24/TwentyFourGame_GameInner.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\game24\\game24.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\game24\\game24.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/game24/game24.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/game24/game24.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\main.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\main.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/main.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\reminder\\reminder_diaries.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\reminder\\reminder_diaries.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/reminder/reminder_diaries.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/reminder/reminder_diaries.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\reminder\\reminder_notepad.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\reminder\\reminder_notepad.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/reminder/reminder_notepad.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/reminder/reminder_notepad.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\reminder\\reminder_passwords.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\reminder\\reminder_passwords.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/reminder/reminder_passwords.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/reminder/reminder_passwords.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\reminder\\reminder_ui.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\reminder\\reminder_ui.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/reminder/reminder_ui.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/reminder/reminder_ui.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\todolist\\todo.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\todolist\\todo.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/todolist/todo.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/todolist/todo.cpp.obj"
+},
+{
+  "directory": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/build",
+  "command": "C:\\minGW\\mingw64\\bin\\c++.exe  @CMakeFiles/DesktopAssistant.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\DesktopAssistant.dir\\src\\todolist\\todolist_manager.cpp.obj -c D:\\conputer_science\\25_desktop_mirror\\2025_fall_desktopassistant-\\src\\todolist\\todolist_manager.cpp",
+  "file": "D:/conputer_science/25_desktop_mirror/2025_fall_desktopassistant-/src/todolist/todolist_manager.cpp",
+  "output": "CMakeFiles/DesktopAssistant.dir/src/todolist/todolist_manager.cpp.obj"
+}
+]

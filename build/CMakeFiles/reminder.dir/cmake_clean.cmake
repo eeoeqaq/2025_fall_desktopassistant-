@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/reminder.dir/TwentyFoueGame.cpp.obj"
+  "CMakeFiles/reminder.dir/TwentyFoueGame.cpp.obj.d"
+  "CMakeFiles/reminder.dir/TwentyFourGame_GameInner.cpp.obj"
+  "CMakeFiles/reminder.dir/TwentyFourGame_GameInner.cpp.obj.d"
+  "CMakeFiles/reminder.dir/account_account.cpp.obj"
+  "CMakeFiles/reminder.dir/account_account.cpp.obj.d"
+  "CMakeFiles/reminder.dir/account_analysis.cpp.obj"
+  "CMakeFiles/reminder.dir/account_analysis.cpp.obj.d"
+  "CMakeFiles/reminder.dir/account_manager.cpp.obj"
+  "CMakeFiles/reminder.dir/account_manager.cpp.obj.d"
+  "CMakeFiles/reminder.dir/account_safeCin.cpp.obj"
+  "CMakeFiles/reminder.dir/account_safeCin.cpp.obj.d"
+  "CMakeFiles/reminder.dir/calculator_Calculator.cpp.obj"
+  "CMakeFiles/reminder.dir/calculator_Calculator.cpp.obj.d"
+  "CMakeFiles/reminder.dir/calculator_ExpressionEvaluator.cpp.obj"
+  "CMakeFiles/reminder.dir/calculator_ExpressionEvaluator.cpp.obj.d"
+  "CMakeFiles/reminder.dir/game24.cpp.obj"
+  "CMakeFiles/reminder.dir/game24.cpp.obj.d"
+  "CMakeFiles/reminder.dir/main.cpp.obj"
+  "CMakeFiles/reminder.dir/main.cpp.obj.d"
+  "CMakeFiles/reminder.dir/reminder_diaries.cpp.obj"
+  "CMakeFiles/reminder.dir/reminder_diaries.cpp.obj.d"
+  "CMakeFiles/reminder.dir/reminder_notepad.cpp.obj"
+  "CMakeFiles/reminder.dir/reminder_notepad.cpp.obj.d"
+  "CMakeFiles/reminder.dir/reminder_passwords.cpp.obj"
+  "CMakeFiles/reminder.dir/reminder_passwords.cpp.obj.d"
+  "CMakeFiles/reminder.dir/reminder_ui.cpp.obj"
+  "CMakeFiles/reminder.dir/reminder_ui.cpp.obj.d"
+  "CMakeFiles/reminder.dir/todo.cpp.obj"
+  "CMakeFiles/reminder.dir/todo.cpp.obj.d"
+  "CMakeFiles/reminder.dir/todolist_manager.cpp.obj"
+  "CMakeFiles/reminder.dir/todolist_manager.cpp.obj.d"
+  "libreminder.dll.a"
+  "reminder.exe"
+  "reminder.exe.manifest"
+  "reminder.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/reminder.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
