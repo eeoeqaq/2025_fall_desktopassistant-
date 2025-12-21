@@ -51,15 +51,15 @@ string PomodoroManager::getCurrentTime() {
 }
 
 // 播放音效
-void PomodoroManager::playSound(int soundType) {
+void PomodoroManager::playSound(SoundType soundType) {
 #ifdef _WIN32
-    if (soundType == 1) {  // 完成番茄钟
+    if (soundType == SOUND_COMPLETION) {  // 完成番茄钟
         Beep(800, 200);
         this_thread::sleep_for(chrono::milliseconds(50));
         Beep(1000, 200);
         this_thread::sleep_for(chrono::milliseconds(50));
         Beep(1200, 300);
-    } else if (soundType == 2) {  // 解锁成就
+    } else if (soundType == SOUND_ACHIEVEMENT) {  // 解锁成就
         Beep(800, 150);
         this_thread::sleep_for(chrono::milliseconds(50));
         Beep(1000, 150);
@@ -247,7 +247,7 @@ void PomodoroManager::checkAndUnlockAchievements() {
             cout << "  " << achievement.description << endl;
             cout << "\n════════════════════════════════════════" << endl;
             
-            playSound(2);
+            playSound(SOUND_ACHIEVEMENT);
             saveAchievements();
             
             this_thread::sleep_for(chrono::seconds(3));
@@ -375,7 +375,7 @@ void PomodoroManager::startPomodoro() {
         cout << "干扰次数: " << record.interruptions << " 次" << endl;
         cout << "\n今日已完成: " << (getTodayPomodoroCount() + 1) << " 个番茄钟" << endl;
         
-        playSound(1);
+        playSound(SOUND_COMPLETION);
     }
     
     records.push_back(record);

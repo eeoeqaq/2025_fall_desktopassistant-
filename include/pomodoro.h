@@ -18,6 +18,12 @@
 
 using namespace std;
 
+// 音效类型枚举
+enum SoundType {
+    SOUND_COMPLETION = 1,    // 完成番茄钟
+    SOUND_ACHIEVEMENT = 2    // 解锁成就
+};
+
 // 番茄钟记录结构体
 struct PomodoroRecord {
     int id;                     // 记录ID
@@ -80,7 +86,7 @@ private:
     string formatTime(int seconds);
     string getCurrentDate();
     string getCurrentTime();
-    void playSound(int soundType); // 1: 完成, 2: 成就解锁
+    void playSound(SoundType soundType); // 使用枚举类型
     int getTodayPomodoroCount();
     int getTotalPomodoroCount();
     void display7DaysTrend();
@@ -92,6 +98,3 @@ public:
     PomodoroManager();
     void start();  // 主菜单入口
 };
-
-// 安全输入函数（如果尚未在其他模块中定义）
-int safeCin(const string& prompt = "", int min = 0, int max = 100);
