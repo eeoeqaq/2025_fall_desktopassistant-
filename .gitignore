@@ -8,6 +8,9 @@ build/
 *.so
 *.dll
 
+# Data
+/data/
+
 # CMake
 CMakeCache.txt
 CMakeFiles/

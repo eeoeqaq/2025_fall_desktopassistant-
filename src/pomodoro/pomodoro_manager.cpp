@@ -158,7 +158,7 @@ void PomodoroManager::loadFromFile() {
 
 // 保存成就到文件
 void PomodoroManager::saveAchievements() {
-    ofstream file(achievementFile);
+    ofstream file(ACHIEVEMENTFILE);
     if (!file.is_open()) {
         cerr << "无法打开文件保存成就数据！" << endl;
         return;
@@ -176,7 +176,7 @@ void PomodoroManager::saveAchievements() {
 
 // 从文件加载成就
 void PomodoroManager::loadAchievements() {
-    ifstream file(achievementFile);
+    ifstream file(ACHIEVEMENTFILE);
     if (!file.is_open()) {
         return;  // 文件不存在，使用默认状态
     }

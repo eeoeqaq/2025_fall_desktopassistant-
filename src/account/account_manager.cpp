@@ -79,6 +79,10 @@ void account_manager::DeleteAccount()
 {
 	this->showTable();
 	int max = (int)this->accounts.size();
+	if (max == 0){
+		cout<<"您目前还未存入任何账目！\n";
+		return;
+	}
 	int row;
 	cout << "输入需要删除的账目（第几行）" << endl;
 	safeCin(row, max, 1, 1);

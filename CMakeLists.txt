@@ -12,6 +12,10 @@ file(GLOB_RECURSE SOURCES
 )
 
 # data 目录在项目根目录下
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/pomodoro")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/reminder")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/account")
+file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/todolist")
 set(DATA_DIR "${CMAKE_SOURCE_DIR}/data")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)

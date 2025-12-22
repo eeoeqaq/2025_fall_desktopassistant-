@@ -69,8 +69,6 @@ private:
     int longBreakDuration;      // 长休息时长(分钟) 默认15
     int pomodorosUntilLongBreak; // 长休息前的番茄钟数 默认4
     
-    const string dataFile = "pomodoro_data.txt";
-    const string achievementFile = "achievements_data.txt";
     
     // 数据管理
     void saveToFile();
