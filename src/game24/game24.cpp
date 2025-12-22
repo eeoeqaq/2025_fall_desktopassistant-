@@ -482,15 +482,3 @@ public:
     }
 };
 
-// 主函数
-int main() {
-    // 设置控制台编码为UTF-8（Windows）
-#ifdef _WIN32
-    system("chcp 65001 > nul");
-#endif
-
-    TwentyFourGame game;
-    game.run();
-
-    return 0;
-}

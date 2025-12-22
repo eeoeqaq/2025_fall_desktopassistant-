@@ -14,6 +14,8 @@ using namespace std;
 
 // 1重要紧急 2重要不紧急 3紧急不重要 4不紧急不重要
      
+// 安全输入函数声明
+int safeCin(const string& prompt = "", int min=0, int max = numeric_limits<int>::max());
 
 //单次事项类
 class Todo {
@@ -74,8 +76,4 @@ public:
     void displayStatistics() const; // 显示统计信息
     int getTodoCount() const;     // 获取事项总数
 };
-
-// 安全输入函数声明
-
-int safeCin(const string& prompt = "", int min=0, int max=_Max_int_dig);
 

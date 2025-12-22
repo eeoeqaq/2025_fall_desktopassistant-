@@ -8,9 +8,14 @@
 #include<vector>
 #include<limits>
 using namespace std;
-#define PASSWORD_FILE "password_dic.txt"
-#define DIARY_FILE "diary_dic.txt"
-#define NOTEPAD_FILE "notepad_dic.txt"
+
+#ifndef DATA_DIR
+#define DATA_DIR "data"
+#endif
+
+#define PASSWORD_FILE DATA_DIR"/reminder/password_dic.txt"
+#define DIARY_FILE DATA_DIR"/reminder/diary_dic.txt"
+#define NOTEPAD_FILE DATA_DIR"/reminder/notepad_dic.txt"
 
 // 说明：
 // 本头文件声明了备忘录系统的所有核心类型与接口，包括：

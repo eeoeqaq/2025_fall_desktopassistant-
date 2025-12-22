@@ -1,4 +1,5 @@
 ﻿#include "pomodoro.h"
+#include "todolist.h"
 #include <map>
 
 // 构造函数
@@ -98,7 +99,7 @@ void PomodoroManager::initializeAchievements() {
 
 // 保存记录到文件
 void PomodoroManager::saveToFile() {
-    ofstream file(dataFile);
+    ofstream file(DATAFILE);
     if (!file.is_open()) {
         cerr << "无法打开文件保存数据！" << endl;
         return;
@@ -120,7 +121,7 @@ void PomodoroManager::saveToFile() {
 
 // 从文件加载记录
 void PomodoroManager::loadFromFile() {
-    ifstream file(dataFile);
+    ifstream file(DATAFILE);
     if (!file.is_open()) {
         return;  // 文件不存在，首次运行
     }

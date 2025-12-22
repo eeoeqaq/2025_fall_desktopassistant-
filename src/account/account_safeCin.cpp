@@ -1,5 +1,8 @@
+#include <windows.h>
+
 #include "account.h"
 #include "reminder.h"
+#include "pomodoro.h"
 
 int safeCin(int& input, int max, int min, int type)
 {

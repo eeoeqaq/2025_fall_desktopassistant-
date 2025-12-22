@@ -1,5 +1,10 @@
 ﻿#pragma once
 
+#ifdef _WIN32
+#include <conio.h>
+#include <windows.h>
+#endif
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -11,12 +16,14 @@
 #include <ctime>
 #include <algorithm>
 
-#ifdef _WIN32
-#include <conio.h>
-#include <windows.h>
+using namespace std;
+
+#ifndef DATA_DIR
+#define DATA_DIR "data"
 #endif
 
-using namespace std;
+#define DATAFILE DATA_DIR"/pomodoro/datafile.txt"
+#define ACHIEVEMENTFILE DATA_DIR"/pomodoro/achievements_data.txt"
 
 // 音效类型枚举
 enum SoundType {
@@ -98,3 +105,4 @@ public:
     PomodoroManager();
     void start();  // 主菜单入口
 };
+
