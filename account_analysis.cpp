@@ -1,4 +1,4 @@
-#include"account.h"
+ï»¿#include"account.h"
 
 void analysis::start(vector<account> accounts)
 {
@@ -17,12 +17,12 @@ void analysis::start(vector<account> accounts)
 		vector<int> temp = { money,state,type };
 		arrayAccounts.push_back(temp);
 	}
-	cout << "ÒÔÏÂÊÇ»ùÓÚÕËµ¥µÄ·ÖÎö:" << endl<<endl;
+	cout << "ä»¥ä¸‹æ˜¯åŸºäºŽè´¦å•çš„åˆ†æž:" << endl<<endl;
 	this->stateAnalysis(arrayAccounts);
 	this->incomeType(arrayAccounts);
 	this->expenseType(arrayAccounts);
 }
-//ÊÕÈëÖ§³ö»ã×Ü
+//æ”¶å…¥æ”¯å‡ºæ±‡æ€»
 void analysis::stateAnalysis(vector<vector<int>> arrayAccounts)
 {
 	int income=0, expense=0;
@@ -31,14 +31,14 @@ void analysis::stateAnalysis(vector<vector<int>> arrayAccounts)
 		if (v[1] == 1) income += v[0];
 		else expense += v[0];
 	}
-	cout << "×ÜÊÕÈëÎª " << income << " Ôª£¬×ÜÖ§³öÎª " << expense << " Ôª" << endl;
+	cout << "æ€»æ”¶å…¥ä¸º " << income << " å…ƒï¼Œæ€»æ”¯å‡ºä¸º " << expense << " å…ƒ" << endl;
 	if (income - expense >= 0)
-		cout << "¾»ÊÕÈëÎª " << income - expense << " Ôª" << endl;
+		cout << "å‡€æ”¶å…¥ä¸º " << income - expense << " å…ƒ" << endl;
 	else
-		cout << "¾»Ö§³öÎª " << expense-income << " Ôª" << endl;
+		cout << "å‡€æ”¯å‡ºä¸º " << expense-income << " å…ƒ" << endl;
 
 }
-//ÊÕÈëÀàÐÍ·Ö±ð»ã×Ü
+//æ”¶å…¥ç±»åž‹åˆ†åˆ«æ±‡æ€»
 void analysis::incomeType(vector<vector<int>> arrayAccounts)
 {
 	int income_1 = 0, income_2 = 0;
@@ -52,14 +52,14 @@ void analysis::incomeType(vector<vector<int>> arrayAccounts)
 	}
 	if (income_1 || income_2)
 	{
-		cout << "¹¤×ÊÊÕÈëÎª " << income_1 << " Ôª£¬ÆäËûÊÕÈëÎª " << income_2 << " Ôª" << endl;
+		cout << "å·¥èµ„æ”¶å…¥ä¸º " << income_1 << " å…ƒï¼Œå…¶ä»–æ”¶å…¥ä¸º " << income_2 << " å…ƒ" << endl;
 		if (income_1 - income_2 >= 0)
-			cout << "ÄúµÄÖ÷ÒªÊÕÈëÏîÄ¿Îª ¹¤×Ê " << endl;
+			cout << "æ‚¨çš„ä¸»è¦æ”¶å…¥é¡¹ç›®ä¸º å·¥èµ„ " << endl;
 		else
-			cout << "ÄúµÄÖ÷ÒªÊÕÈëÏîÄ¿Îª ÆäËûÊÕÈë " << endl;
+			cout << "æ‚¨çš„ä¸»è¦æ”¶å…¥é¡¹ç›®ä¸º å…¶ä»–æ”¶å…¥ " << endl;
 	}
 }
-//Ö§³öÀàÐÍ·Ö±ð»ã×Ü
+//æ”¯å‡ºç±»åž‹åˆ†åˆ«æ±‡æ€»
 void analysis::expenseType(vector<vector<int>> arrayAccounts)
 {
 	int expense_1 = 0, expense_2 = 0,expense_3=0;
@@ -74,13 +74,13 @@ void analysis::expenseType(vector<vector<int>> arrayAccounts)
 	}
 	if (expense_1 || expense_2 || expense_3)
 	{
-		cout << "ÒûÊ³Ö§³öÎª " << expense_1 << " Ôª£¬ÈÕÓÃÖ§³öÎª " << expense_2 << " Ôª£¬ÈÕÓÃÖ§³öÎª " << expense_3 << " Ôª" << endl;
+		cout << "é¥®é£Ÿæ”¯å‡ºä¸º " << expense_1 << " å…ƒï¼Œæ—¥ç”¨æ”¯å‡ºä¸º " << expense_2 << " å…ƒï¼Œæ—¥ç”¨æ”¯å‡ºä¸º " << expense_3 << " å…ƒ" << endl;
 		if (max(expense_1, max(expense_2, expense_3)) == expense_1)
-			cout << "ÄúµÄÖ÷ÒªÖ§³öÏîÄ¿Îª ÒûÊ³ " << endl;
+			cout << "æ‚¨çš„ä¸»è¦æ”¯å‡ºé¡¹ç›®ä¸º é¥®é£Ÿ " << endl;
 		else if (max(expense_1, max(expense_2, expense_3)) == expense_2)
-			cout << "ÄúµÄÖ÷ÒªÖ§³öÏîÄ¿Îª ÈÕÓÃ " << endl;
+			cout << "æ‚¨çš„ä¸»è¦æ”¯å‡ºé¡¹ç›®ä¸º æ—¥ç”¨ " << endl;
 		else
-			cout << "ÄúµÄÖ÷ÒªÖ§³öÏîÄ¿Îª ÓéÀÖ " << endl;
+			cout << "æ‚¨çš„ä¸»è¦æ”¯å‡ºé¡¹ç›®ä¸º å¨±ä¹ " << endl;
 	}
 	cout << endl;
 }
