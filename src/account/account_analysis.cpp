@@ -1,4 +1,4 @@
-#include"account.h"
+﻿#include"account.h"
 
 void analysis::start(vector<account> accounts)
 {
@@ -17,12 +17,12 @@ void analysis::start(vector<account> accounts)
 		vector<int> temp = { money,state,type };
 		arrayAccounts.push_back(temp);
 	}
-	cout << "�����ǻ����˵��ķ���:" << endl<<endl;
+	cout << "以下是基于账单的分析:" << endl<<endl;
 	this->stateAnalysis(arrayAccounts);
 	this->incomeType(arrayAccounts);
 	this->expenseType(arrayAccounts);
 }
-//����֧������
+//收入支出汇总
 void analysis::stateAnalysis(vector<vector<int>> arrayAccounts)
 {
 	int income=0, expense=0;
@@ -31,14 +31,14 @@ void analysis::stateAnalysis(vector<vector<int>> arrayAccounts)
 		if (v[1] == 1) income += v[0];
 		else expense += v[0];
 	}
-	cout << "������Ϊ " << income << " Ԫ����֧��Ϊ " << expense << " Ԫ" << endl;
+	cout << "总收入为 " << income << " 元，总支出为 " << expense << " 元" << endl;
 	if (income - expense >= 0)
-		cout << "������Ϊ " << income - expense << " Ԫ" << endl;
+		cout << "净收入为 " << income - expense << " 元" << endl;
 	else
-		cout << "��֧��Ϊ " << expense-income << " Ԫ" << endl;
+		cout << "净支出为 " << expense-income << " 元" << endl;
 
 }
-//�������ͷֱ����
+//收入类型分别汇总
 void analysis::incomeType(vector<vector<int>> arrayAccounts)
 {
 	int income_1 = 0, income_2 = 0;
@@ -52,14 +52,14 @@ void analysis::incomeType(vector<vector<int>> arrayAccounts)
 	}
 	if (income_1 || income_2)
 	{
-		cout << "��������Ϊ " << income_1 << " Ԫ����������Ϊ " << income_2 << " Ԫ" << endl;
+		cout << "工资收入为 " << income_1 << " 元，其他收入为 " << income_2 << " 元" << endl;
 		if (income_1 - income_2 >= 0)
-			cout << "������Ҫ������ĿΪ ���� " << endl;
+			cout << "您的主要收入项目为 工资 " << endl;
 		else
-			cout << "������Ҫ������ĿΪ �������� " << endl;
+			cout << "您的主要收入项目为 其他收入 " << endl;
 	}
 }
-//֧�����ͷֱ����
+//支出类型分别汇总
 void analysis::expenseType(vector<vector<int>> arrayAccounts)
 {
 	int expense_1 = 0, expense_2 = 0,expense_3=0;
@@ -74,13 +74,13 @@ void analysis::expenseType(vector<vector<int>> arrayAccounts)
 	}
 	if (expense_1 || expense_2 || expense_3)
 	{
-		cout << "��ʳ֧��Ϊ " << expense_1 << " Ԫ������֧��Ϊ " << expense_2 << " Ԫ������֧��Ϊ " << expense_3 << " Ԫ" << endl;
+		cout << "饮食支出为 " << expense_1 << " 元，日用支出为 " << expense_2 << " 元，日用支出为 " << expense_3 << " 元" << endl;
 		if (max(expense_1, max(expense_2, expense_3)) == expense_1)
-			cout << "������Ҫ֧����ĿΪ ��ʳ " << endl;
+			cout << "您的主要支出项目为 饮食 " << endl;
 		else if (max(expense_1, max(expense_2, expense_3)) == expense_2)
-			cout << "������Ҫ֧����ĿΪ ���� " << endl;
+			cout << "您的主要支出项目为 日用 " << endl;
 		else
-			cout << "������Ҫ֧����ĿΪ ���� " << endl;
+			cout << "您的主要支出项目为 娱乐 " << endl;
 	}
 	cout << endl;
-}
+}					
