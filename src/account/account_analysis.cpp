@@ -1,4 +1,4 @@
-#include"account.h"
+﻿#include"account.h"
 
 void analysis::start(vector<account> accounts)
 {
@@ -83,4 +83,8 @@ void analysis::expenseType(vector<vector<int>> arrayAccounts)
 			cout << "您的主要支出项目为 娱乐 " << endl;
 	}
 	cout << endl;
+<<<<<<< HEAD
 }
+=======
+}					
+>>>>>>> 6bf25ffd516a28a81eb1deebe36835db0f00fece
