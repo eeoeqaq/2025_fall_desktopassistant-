@@ -4,7 +4,7 @@ void account_manager::Start()
 {
 	//读文件部分
 	ifstream accountFile;
-	accountFile.open("accountData.txt", ios::in);
+	accountFile.open(ACCOUNTFILE, ios::in);
 	string line,tem;
 	
 	while (getline(accountFile, line))
@@ -95,7 +95,7 @@ void account_manager::showTable()
 {
 	//打印表头
 	cout << "账单如下：" << endl;
-	cout << setw(10) << "金额" << setw(10) << "收入/支出" << setw(10) << "类别" << endl;
+	cout << setw(12) << "金额" << setw(15) << "收入/支出" << setw(15) << "类别" << endl;
 	//打印账目
 	for (account a : accounts)
 	{
@@ -107,7 +107,7 @@ void account_manager::showTable()
 void account_manager::save()
 {
 	ofstream accountFile;
-	accountFile.open("accountData.txt", ios::out);
+	accountFile.open(ACCOUNTFILE, ios::out);
 	for (account a : accounts)
 	{
 		accountFile << a.getAccount()<<endl;
@@ -124,7 +124,7 @@ void account_manager::analysisAccount()
 void account_manager::clearAccount()
 {
 	ofstream accountFile;
-	accountFile.open("accountData.txt", ios::out);
+	accountFile.open(ACCOUNTFILE, ios::out);
 	accountFile.close();
 	this->accounts.clear();
 	cout << "账本已清空" << endl << endl;;

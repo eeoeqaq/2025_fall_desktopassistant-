@@ -12,6 +12,12 @@
 
 using namespace std;
 
+#ifndef DATA_DIR
+#define DATA_DIR "data"
+#endif
+
+#define ACCOUNTFILE DATA_DIR"/account/accountData.txt"
+
 //声明单次账目类
 class account
 {

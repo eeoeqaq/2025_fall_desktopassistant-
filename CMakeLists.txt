@@ -11,7 +11,7 @@ file(GLOB_RECURSE SOURCES
      "src/**/*.cpp"
 )
 
-# data 目录在项目根目录下
+# 数据存储在DATA文件夹下
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/pomodoro")
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/reminder")
 file(MAKE_DIRECTORY "${CMAKE_SOURCE_DIR}/data/account")

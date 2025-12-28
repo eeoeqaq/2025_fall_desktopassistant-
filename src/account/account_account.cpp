@@ -30,9 +30,9 @@ void account::setAccount()
 
 void account::ShowAccount()//用表格形式展示单条账目
 {
-	cout << setw(10) << this->money;
+	cout << setw(12) << this->money;
 	string showState = (this->state - 1) ? "支出" : "收入";
-	cout << setw(10) << showState;
+	cout << setw(15) << showState;
 	string showType;
 	if(state==1)
 	switch (this->type)
@@ -57,7 +57,7 @@ void account::ShowAccount()//用表格形式展示单条账目
 		showType = "娱乐";
 		break;
 	}
-	cout << setw(10) << showType<<endl;
+	cout << setw(15) << showType<<endl;
 }
 string account::getAccount()
 {

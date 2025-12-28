@@ -12,6 +12,11 @@
 
 using namespace std;
 
+#ifndef DATA_DIR
+#define DATA_DIR "data"
+#endif
+
+#define TODOLISTFILE DATA_DIR"/todolist/todolist_data.txt"
 // 1重要紧急 2重要不紧急 3紧急不重要 4不紧急不重要
      
 // 安全输入函数声明

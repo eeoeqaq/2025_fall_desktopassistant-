@@ -38,7 +38,7 @@ int safeCin(const string& prompt, int min, int max) {
 
 // 保存数据到文件
 void TodolistManager::saveToFile() {
-    ofstream file(dataFile);
+    ofstream file(TODOLISTFILE);
     
     for (const auto& todo : todos) {
         file << todo.getId() << " "
@@ -52,7 +52,7 @@ void TodolistManager::saveToFile() {
 
 // 从文件加载数据
 void TodolistManager::loadFromFile() {
-    ifstream file(dataFile);
+    ifstream file(TODOLISTFILE);
     if (!file) {
         return; // 文件不存在时直接返回
     }
