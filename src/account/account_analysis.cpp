@@ -83,7 +83,8 @@ void analysis::expenseType(vector<vector<int>> arrayAccounts)
 			cout << "您的主要支出项目为 娱乐 " << endl;
 	}
 	cout << endl;
-}       
+}    
+
 
 
 
