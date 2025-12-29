@@ -2,9 +2,9 @@
 
 void account_manager::Start()
 {
-	//¶ÁÎÄ¼ş²¿·Ö
+	//è¯»æ–‡ä»¶éƒ¨åˆ†
 	ifstream accountFile;
-	accountFile.open("accountData.txt", ios::in);
+	accountFile.open(ACCOUNTFILE, ios::in);
 	string line,tem;
 	
 	while (getline(accountFile, line))
@@ -20,28 +20,31 @@ void account_manager::Start()
 		this->accounts.push_back(temp);
 	}
 
-	//ÕıÊ½ÔËĞĞ²¿·Ö
+	//æ­£å¼è¿è¡Œéƒ¨åˆ†
 		this->HomePage();
 	
 }
 
-void account_manager::HomePage()//Ê×Ò³²Ëµ¥Ä£¿é
+void account_manager::HomePage()//é¦–é¡µèœå•æ¨¡å—
 {
+
+	
 	while (true)
 	{
+		system("cls");
 		cout << " ******************************" << endl;
-		cout << "Ìí¼ÓÕËÄ¿ÊäÈë1" << endl;
-		cout << "É¾³ıÕËÄ¿ÊäÈë2" << endl;
-		cout << "´òÓ¡ÕËµ¥ÊäÈë3" << endl;
-		cout << "Çå¿ÕÕË±¾ÊäÈë4" << endl;
-		cout << "·ÖÎöÕËµ¥ÊäÈë5" << endl;
-		cout << "ÍË³öÕË±¾ÊäÈë6" << endl;
+		cout << "æ·»åŠ è´¦ç›®è¾“å…¥1" << endl;
+		cout << "åˆ é™¤è´¦ç›®è¾“å…¥2" << endl;
+		cout << "æ‰“å°è´¦å•è¾“å…¥3" << endl;
+		cout << "æ¸…ç©ºè´¦æœ¬è¾“å…¥4" << endl;
+		cout << "åˆ†æè´¦å•è¾“å…¥5" << endl;
+		cout << "é€€å‡ºè´¦æœ¬è¾“å…¥0" << endl;
 		cout << " ******************************" << endl << endl;
 
 
 		int choice;
-		cout << "ÊäÈëÑ¡Ïî";
-		safeCin(choice, 6, 1, 1);
+		cout << "è¾“å…¥é€‰é¡¹";
+		safeCin(choice, 5, 0, 1);
 		cout << endl;
 		switch (choice)
 		{
@@ -60,7 +63,7 @@ void account_manager::HomePage()//Ê×Ò³²Ëµ¥Ä£¿é
 		case 5:
 			this->analysisAccount();
 			break;
-		case 6:
+		case 0:
 			return;
 		}
 	}
@@ -78,8 +81,12 @@ void account_manager::DeleteAccount()
 {
 	this->showTable();
 	int max = (int)this->accounts.size();
+	if (max == 0){
+		cout<<"æ‚¨ç›®å‰è¿˜æœªå­˜å…¥ä»»ä½•è´¦ç›®ï¼\n";
+		return;
+	}
 	int row;
-	cout << "ÊäÈëĞèÒªÉ¾³ıµÄÕËÄ¿£¨µÚ¼¸ĞĞ£©" << endl;
+	cout << "è¾“å…¥éœ€è¦åˆ é™¤çš„è´¦ç›®ï¼ˆç¬¬å‡ è¡Œï¼‰ " << endl;
 	safeCin(row, max, 1, 1);
 
 	this->accounts.erase(accounts.begin()+row-1);
@@ -88,21 +95,22 @@ void account_manager::DeleteAccount()
 
 void account_manager::showTable()
 {
-	//´òÓ¡±íÍ·
-	cout << "ÕËµ¥ÈçÏÂ£º" << endl;
-	cout << setw(10) << "½ğ¶î" << setw(10) << "ÊÕÈë/Ö§³ö" << setw(10) << "Àà±ğ" << endl;
-	//´òÓ¡ÕËÄ¿
+	//æ‰“å°è¡¨å¤´
+	cout << "è´¦å•å¦‚ä¸‹ï¼š " << endl;
+	cout << setw(12) << "é‡‘é¢" << setw(15) << "æ”¶å…¥/æ”¯å‡º" << setw(15) << "ç±»åˆ«" << endl;
+	//æ‰“å°è´¦ç›®
 	for (account a : accounts)
 	{
 		a.ShowAccount();
 	}	
 	cout << endl;
+	system("pause");
 }
 
 void account_manager::save()
 {
 	ofstream accountFile;
-	accountFile.open("accountData.txt", ios::out);
+	accountFile.open(ACCOUNTFILE, ios::out);
 	for (account a : accounts)
 	{
 		accountFile << a.getAccount()<<endl;
@@ -114,13 +122,15 @@ void account_manager::analysisAccount()
 {
 	analysis A;
 	A.start(account_manager::accounts);
+	system("pause");
 }
 
 void account_manager::clearAccount()
 {
 	ofstream accountFile;
-	accountFile.open("accountData.txt", ios::out);
+	accountFile.open(ACCOUNTFILE, ios::out);
 	accountFile.close();
 	this->accounts.clear();
-	cout << "ÕË±¾ÒÑÇå¿Õ" << endl << endl;;
+	cout << "è´¦æœ¬å·²æ¸…ç©º " << endl << endl;;
+	system("pause");
 }

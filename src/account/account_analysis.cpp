@@ -84,3 +84,5 @@ void analysis::expenseType(vector<vector<int>> arrayAccounts)
 	}
 	cout << endl;
 }
+
+
