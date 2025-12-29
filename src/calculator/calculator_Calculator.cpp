@@ -44,7 +44,63 @@ void Calculator::showHelp() {
 
 
 
+//// 计算表达式
+//void Calculator::calculateExpression() {
+//    string expression;
+//    cout << "\n请输入表达式 (输入 'help' 查看教程，'back' 返回):\n> ";
+//    getline(cin, expression);
+//
+//    if (expression == "back") return;
+//    if (expression == "help") {
+//        showHelp();
+//        return calculateExpression();
+//    }
+//
+//    if (expression.empty()) {
+//        cout << "表达式不能为空！\n";
+//        return;
+//    }
+//
+//    try {
+//        double result = evaluator.evaluate(expression);
+//
+//        cout << fixed << setprecision(6);
+//        cout << "\n结果: " << expression << " = " << result << endl;
+//
+//        // 添加到历史记录
+//        CalculationRecord record;
+//        record.expression = expression;
+//        record.result = result;
+//        record.timestamp = getCurrentTime();
+//        history.push_back(record);
+//
+//        // 询问是否保存
+//        cout << "\n是否保存此结果？ (y/n): ";
+//        char choice;
+//        cin >> choice;
+//        cin.ignore(); // 清除换行符
+//
+//        if (tolower(choice) == 'y') {
+//            saveResult(expression, result);
+//        }
+//
+//    }
+//    catch (const exception& e) {
+//        cout << "错误: " << e.what() << endl;
+//    }
+//}
 // 计算表达式
+double ExpressionEvaluator::evaluate(const string& expression) {
+    try {
+        vector<string> postfix = infixToPostfix(expression);
+        return evaluatePostfix(postfix);
+    }
+    catch (const exception& e) {
+        throw runtime_error("计算错误: " + string(e.what()));
+    }
+}
+
+//计算表达式（修改版，支持 $index 语法）
 void Calculator::calculateExpression() {
     string expression;
     cout << "\n请输入表达式 (输入 'help' 查看教程，'back' 返回):\n> ";
@@ -62,6 +118,16 @@ void Calculator::calculateExpression() {
     }
 
     try {
+        // 检查并替换所有 $index 占位符
+        for (size_t i = 0; i < savedItems.size(); i++) {
+            string placeholder = "$" + to_string(i + 1);
+            size_t pos = expression.find(placeholder);
+            while (pos != string::npos) {
+                expression.replace(pos, placeholder.length(), to_string(savedItems[i].value));
+                pos = expression.find(placeholder, pos + 1);
+            }
+        }
+
         double result = evaluator.evaluate(expression);
 
         cout << fixed << setprecision(6);
@@ -176,6 +242,25 @@ void Calculator::viewSavedItems() {
     }
 }
 
+//// 使用保存的值
+//void Calculator::useSavedItem() {
+//    if (savedItems.empty()) return;
+//
+//    cout << "请输入要使用的保存项序号: ";
+//    int index;
+//    cin >> index;
+//    cin.ignore();
+//
+//    if (index < 1 || index > static_cast<int>(savedItems.size())) {
+//        cout << "无效的序号！\n";
+//        return;
+//    }
+//
+//    SavedItem& item = savedItems[index - 1];
+//    cout << "\n使用保存值: " << item.name << " = " << item.value << endl;
+//    cout << "可以在表达式中使用 $" << index << " 来引用此值\n";
+//    cout << "例如: $" << index << " * 2 或 sqrt($" << index << ")\n";
+//}
 // 使用保存的值
 void Calculator::useSavedItem() {
     if (savedItems.empty()) return;
@@ -191,9 +276,52 @@ void Calculator::useSavedItem() {
     }
 
     SavedItem& item = savedItems[index - 1];
-    cout << "\n使用保存值: " << item.name << " = " << item.value << endl;
-    cout << "可以在表达式中使用 $" << index << " 来引用此值\n";
-    cout << "例如: $" << index << " * 2 或 sqrt($" << index << ")\n";
+    cout << "\n已选择保存值: " << item.name << " = " << item.value << endl;
+
+    // 询问用户如何使用这个值
+    cout << "请选择操作:\n";
+    cout << "1. 直接查看值\n";
+    cout << "2. 在表达式中使用 (使用 $" << index << " 表示)\n";
+    cout << "3. 返回\n";
+    cout << "请选择: ";
+
+    int choice;
+    cin >> choice;
+    cin.ignore();
+
+    if (choice == 1) {
+        cout << item.name << " = " << item.expression << " = " << item.value << endl;
+    }
+    else if (choice == 2) {
+        // 允许用户输入包含 $index 的表达式
+        cout << "请输入表达式 (使用 $" << index << " 表示保存的值):\n> ";
+        string expression;
+        getline(cin, expression);
+
+        // 将 $index 替换为实际值
+        string placeholder = "$" + to_string(index);
+        size_t pos = expression.find(placeholder);
+        while (pos != string::npos) {
+            expression.replace(pos, placeholder.length(), to_string(item.value));
+            pos = expression.find(placeholder, pos + 1);
+        }
+
+        try {
+            double result = evaluator.evaluate(expression);
+            cout << fixed << setprecision(6);
+            cout << "\n结果: " << expression << " = " << result << endl;
+
+            // 添加到历史记录
+            CalculationRecord record;
+            record.expression = expression;
+            record.result = result;
+            record.timestamp = getCurrentTime();
+            history.push_back(record);
+        }
+        catch (const exception& e) {
+            cout << "错误: " << e.what() << endl;
+        }
+    }
 }
 
 // 删除保存项

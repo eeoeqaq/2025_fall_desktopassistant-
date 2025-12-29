@@ -164,13 +164,3 @@ double ExpressionEvaluator::evaluatePostfix(const vector<string>& postfix) {
     return values.top();
 }
 
-// 计算表达式
-double ExpressionEvaluator::evaluate(const string& expression) {
-    try {
-        vector<string> postfix = infixToPostfix(expression);
-        return evaluatePostfix(postfix);
-    }
-    catch (const exception& e) {
-        throw runtime_error("计算错误: " + string(e.what()));
-    }
-}
