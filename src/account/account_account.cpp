@@ -3,21 +3,21 @@
 void account::setAccount()
 {
 	int money;
-	cout << "è¯·è¾“å…¥é‡‘é¢(å•ç¬”ä¸è¶…è¿‡1000000å…ƒçš„æ•´æ•°)" << endl<<endl;
+	cout << "ÇëÊäÈë½ğ¶î(µ¥±Ê²»³¬¹ı1000000ÔªµÄÕûÊı)" << endl<<endl;
 	safeCin(money, 1000000, 1, 2);	
 	int state;
-	cout << "è¯·è¾“å…¥æ”¶æ”¯ç±»å‹(1ä¸ºæ”¶å…¥/2ä¸ºæ”¯å‡º)" << endl << endl;
+	cout << "ÇëÊäÈëÊÕÖ§ÀàĞÍ(1ÎªÊÕÈë/2ÎªÖ§³ö)" << endl << endl;
 	safeCin(state, 2, 1, 1);
 
 	int type ;
-	if (state == 1)//æ”¶å…¥ç±»å‹
+	if (state == 1)//ÊÕÈëÀàĞÍ
 	{
-		cout << "è¯·è¾“å…¥æ”¶å…¥ç±»å‹ï¼ˆ1ä¸ºå·¥èµ„ï¼Œ2ä¸ºå…¶ä»–æ”¶å…¥ï¼‰" << endl << endl;
+		cout << "ÇëÊäÈëÊÕÈëÀàĞÍ£¨1Îª¹¤×Ê£¬2ÎªÆäËûÊÕÈë£©" << endl << endl;
 		safeCin(type, 2, 1, 1);
 	}
-	else //æ”¯å‡ºç±»å‹
+	else //Ö§³öÀàĞÍ
 	{
-		cout << "è¯·è¾“å…¥æ”¯å‡ºç±»å‹ï¼ˆ1ä¸ºé¥®é£Ÿï¼Œ2ä¸ºæ—¥ç”¨ï¼Œ3ä¸ºå¨±ä¹ï¼‰" << endl<<endl;
+		cout << "ÇëÊäÈëÖ§³öÀàĞÍ£¨1ÎªÒûÊ³£¬2ÎªÈÕÓÃ£¬3ÎªÓéÀÖ£©" << endl<<endl;
 		safeCin(type, 3, 1, 1);
 			
 	}
@@ -28,36 +28,36 @@ void account::setAccount()
 	this->type = type;
 }
 
-void account::ShowAccount()//ç”¨è¡¨æ ¼å½¢å¼å±•ç¤ºå•æ¡è´¦ç›®
+void account::ShowAccount()//ÓÃ±í¸ñĞÎÊ½Õ¹Ê¾µ¥ÌõÕËÄ¿
 {
-	cout << setw(12) << this->money;
-	string showState = (this->state - 1) ? "æ”¯å‡º" : "æ”¶å…¥";
-	cout << setw(15) << showState;
+	cout << setw(10) << this->money;
+	string showState = (this->state - 1) ? "Ö§³ö" : "ÊÕÈë";
+	cout << setw(10) << showState;
 	string showType;
 	if(state==1)
 	switch (this->type)
 	{
 	case 1:
-		showType = "å·¥èµ„";
+		showType = "¹¤×Ê";
 		break;
 	case 2:
-		showType = "å…¶ä»–æ”¶å…¥";
+		showType = "ÆäËûÊÕÈë";
 		break;
 	}
 	if(state==2)
 	switch (this->type)
 	{
 	case 1:
-		showType = "é¥®é£Ÿ";
+		showType = "ÒûÊ³";
 		break;
 	case 2:
-		showType = "æ—¥ç”¨";
+		showType = "ÈÕÓÃ";
 		break;
 	case 3:
-		showType = "å¨±ä¹";
+		showType = "ÓéÀÖ";
 		break;
 	}
-	cout << setw(15) << showType<<endl;
+	cout << setw(10) << showType<<endl;
 }
 string account::getAccount()
 {
