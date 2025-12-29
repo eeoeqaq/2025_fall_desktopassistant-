@@ -59,9 +59,9 @@ void Todo::setCompleted(bool completed) {
 // 显示事项信息
 void Todo::display() const {
     cout << setw(6) << id
-        << setw(30) << left
+        << setw(25) << left
         << (content.length() > 28 ? content.substr(0, 28) + ".." : content)
-        << setw(12) << getTypeString()
-        << setw(4) << (completed ? "完成" : " ")
+        << setw(16) << getTypeString()
+        << setw(8) << (completed ? "  完成" : " ")
         << endl;
 }
