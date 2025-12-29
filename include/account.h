@@ -1,4 +1,4 @@
-//å®å®šä¹‰ä¿æŠ¤ï¼Œé˜²æ­¢é‡å¤ä¾èµ–
+//ºê¶¨Òå±£»¤£¬·ÀÖ¹ÖØ¸´ÒÀÀµ
 #pragma once
 
 #include<iostream>
@@ -12,34 +12,28 @@
 
 using namespace std;
 
-#ifndef DATA_DIR
-#define DATA_DIR "data"
-#endif
-
-#define ACCOUNTFILE DATA_DIR"/account/accountData.txt"
-
-//å£°æ˜å•æ¬¡è´¦ç›®ç±»
+//ÉùÃ÷µ¥´ÎÕËÄ¿Àà
 class account
 {
 
-	//é‡‘é¢
+	//½ğ¶î
 	int money;
-	//åŒºåˆ†æ”¯å‡ºæ”¶å…¥çš„çŠ¶æ€ï¼Œ1ä¸ºæ”¶å…¥ï¼Œ2ä¸ºæ”¯å‡º
+	//Çø·ÖÖ§³öÊÕÈëµÄ×´Ì¬£¬1ÎªÊÕÈë£¬2ÎªÖ§³ö
 	int state;
-	//12ä¸ºæ”¶å…¥ç±»å‹ï¼šå·¥èµ„ï¼Œå…¶ä»–æ”¶å…¥ï¼›345ä¸ºæ”¯å‡ºç±»å‹ï¼šåƒï¼Œç”¨ï¼Œç©
+	//12ÎªÊÕÈëÀàĞÍ£º¹¤×Ê£¬ÆäËûÊÕÈë£»345ÎªÖ§³öÀàĞÍ£º³Ô£¬ÓÃ£¬Íæ
 	int type;
 	
 public:
 	
-	//å¡«å†™å•æ¡è´¦ç›®
+	//ÌîĞ´µ¥ÌõÕËÄ¿
 	void setAccount();
-	//å±•ç¤ºå•æ¡è´¦ç›®
+	//Õ¹Ê¾µ¥ÌõÕËÄ¿
 	void ShowAccount();
-	//å•æ¡è´¦ç›®è½¬ä¸ºå­—ç¬¦ä¸²ï¼Œä¾¿äºå†™æ–‡ä»¶
+	//µ¥ÌõÕËÄ¿×ªÎª×Ö·û´®£¬±ãÓÚĞ´ÎÄ¼ş
 	string getAccount();
-	//ä»æ–‡ä»¶ä¸­è¯»å­—ç¬¦ä¸²è½¬å…¥ä¸€æ¡è´¦ç›®,å€Ÿç”¨æ„é€ å‡½æ•°å®ç°
+	//´ÓÎÄ¼şÖĞ¶Á×Ö·û´®×ªÈëÒ»ÌõÕËÄ¿,½èÓÃ¹¹Ôìº¯ÊıÊµÏÖ
 	account(int money,int state,int type);
-	//è¡¥é»˜è®¤æ„é€ å‡½æ•°
+	//²¹Ä¬ÈÏ¹¹Ôìº¯Êı
 	account()
 	{
 		this->money = -1;
@@ -50,50 +44,50 @@ public:
 
 };
 
-//æä¾›åˆ†ææŠ¥å‘Šç±»
+//Ìá¹©·ÖÎö±¨¸æÀà
 class analysis
 {
 
 public:
 	void start(vector<account> accounts);
 
-	//æ€»ç»“æ”¶å…¥æ”¯å‡º
+	//×Ü½áÊÕÈëÖ§³ö
 	void stateAnalysis(vector<vector<int>> arrayAccounts);
-	//æ€»ç»“æ”¶å…¥ä¸‹å­ç±»å‹
+	//×Ü½áÊÕÈëÏÂ×ÓÀàĞÍ
 	void incomeType(vector<vector<int>> arrayAccounts);
-	//æ€»ç»“æ”¯å‡ºä¸‹å­ç±»å‹
+	//×Ü½áÖ§³öÏÂ×ÓÀàĞÍ
 	void expenseType(vector<vector<int>> arrayAccounts);
 	
 };
 
-//è´¦å•ç®¡ç†ç±»
+//ÕËµ¥¹ÜÀíÀà
 class account_manager
-{//å‚¨å­˜æ‰€æœ‰è´¦ç›®
+{//´¢´æËùÓĞÕËÄ¿
 
 	vector<account> accounts;
 	
 public:
-	//å¼€å¯ç¨‹åº
+	//¿ªÆô³ÌĞò
 	void Start();
-	//é¦–é¡µèœå•æ¨¡å—
+	//Ê×Ò³²Ëµ¥Ä£¿é
 	void HomePage();
-	//å†™å…¥ä¸€æ¡è´¦ç›®
+	//Ğ´ÈëÒ»ÌõÕËÄ¿
 	void WriteAccount();
-	//åˆ é™¤ä¸€æ¡è´¦ç›®
+	//É¾³ıÒ»ÌõÕËÄ¿
 	void DeleteAccount();
-	//å±•ç¤ºè´¦ç›®è¡¨æ ¼
+	//Õ¹Ê¾ÕËÄ¿±í¸ñ
 	void showTable();
-	//ä¿å­˜æ‰€æœ‰è´¦ç›®
+	//±£´æËùÓĞÕËÄ¿
 	void save();
-	//æä¾›åˆ†ææŠ¥å‘Š
+	//Ìá¹©·ÖÎö±¨¸æ
 	void analysisAccount();
-	//æ¸…ç©ºè´¦æœ¬
+	//Çå¿ÕÕË±¾
 	void clearAccount();
 };
 
-//å®‰å…¨è¾“å…¥å‡½æ•° 
-//type=1,åœ¨maxå’Œminä¹‹é—´çš„æ•´æ•°æ˜¯åˆæ³•çš„
-//type=2ï¼Œåœ¨maxå’Œminä¹‹é—´çš„å®æ•°æ˜¯åˆæ³•çš„
+//°²È«ÊäÈëº¯Êı
+//type=1,ÔÚmaxºÍminÖ®¼äµÄÕûÊıÊÇºÏ·¨µÄ
+//type=2£¬ÔÚmaxºÍminÖ®¼äµÄÊµÊıÊÇºÏ·¨µÄ
 int safeCin(int& input, int max, int min, int type);
 
 
